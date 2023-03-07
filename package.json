@@ -1,8 +1,8 @@
 {
-  "name": "@test/api-plugin-product-field-updation",
-  "description": "Boilerplate Example plugin for the Reaction API",
+  "name": "@shoaibfarooq3/api-plugin-product-field-updation",
+  "description": "Boilerplate plugin for the Reaction API",
   "label": "Product Plugin Updation",
-  "version": "3.0.0-development",
+  "version": "6.6.2-development",
   "main": "index.js",
   "type": "module",
   "engines": {

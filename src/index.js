@@ -3,38 +3,132 @@ import importAsString from "@reactioncommerce/api-utils/importAsString.js";
 const mySchema = importAsString("./schema/schema.graphql");
 // const pkg = createRequire("../package.json");
 const require = createRequire(import.meta.url);
-// sadasdasd
+const pkg = require("../package.json");
+
 function myStartup(context) {
-  context.simpleSchemas.ProductVariant.extend({
-    Chassis: {
+  context.simpleSchemas.Product.extend({
+    Identification: {
       type: String,
       min: 0,
       optional: true,
     },
-    Colour: {
+    EngineInformation: {
       type: String,
       min: 0,
       optional: true,
     },
-    Sunroof: {
+    Dimensions: {
+      type: String,
+      min: 0,
+      optional: true,
+    },
+    FuelInformation: {
+      type: String,
+      min: 0,
+      optional: true,
+    },
+    EngineTechnology: {
+      type: String,
+      min: 0,
+      optional: true,
+    },
+    FuelDeliverySystem: {
+      type: String,
+      min: 0,
+      optional: true,
+    },
+    Images: {
+      type: String,
+      min: 0,
+      optional: true,
+    },
+    SendGiff: {
       type: String,
       min: 0,
       optional: true,
     },
   });
-
+  context.simpleSchemas.ProductVariant.extend({
+    Identification: {
+      type: String,
+      min: 0,
+      optional: true,
+    },
+    EngineInformation: {
+      type: String,
+      min: 0,
+      optional: true,
+    },
+    Dimensions: {
+      type: String,
+      min: 0,
+      optional: true,
+    },
+    FuelInformation: {
+      type: String,
+      min: 0,
+      optional: true,
+    },
+    EngineTechnology: {
+      type: String,
+      min: 0,
+      optional: true,
+    },
+    FuelDeliverySystem: {
+      type: String,
+      min: 0,
+      optional: true,
+    },
+    Images: {
+      type: String,
+      min: 0,
+      optional: true,
+    },
+    SendGiff: {
+      type: String,
+      min: 0,
+      optional: true,
+    },
+  });
   context.simpleSchemas.CatalogProductVariant.extend({
-    Sunroof: {
+    Identification: {
       type: String,
       min: 0,
       optional: true,
     },
-    Colour: {
+    EngineInformation: {
       type: String,
       min: 0,
       optional: true,
     },
-    Chassis: {
+    Dimensions: {
+      type: String,
+      min: 0,
+      optional: true,
+    },
+
+    FuelInformation: {
+      type: String,
+      min: 0,
+      optional: true,
+    },
+    EngineTechnology: {
+      type: String,
+      min: 0,
+      optional: true,
+    },
+
+    FuelDeliverySystem: {
+      type: String,
+      min: 0,
+      optional: true,
+    },
+    Images: {
+      type: String,
+      min: 0,
+      optional: true,
+    },
+    SendGiff: {
       type: String,
       min: 0,
       optional: true,
@@ -51,16 +145,21 @@ function myPublishProductToCatalog(
       const productVariant = variants.find(
         (variant) => variant._id === catalogVariant.variantId
       );
-      catalogVariant.Sunroof = productVariant.Sunroof || null;
-      catalogVariant.Colour = productVariant.Colour || null;
-      catalogVariant.Chassis = productVariant.Chassis || null;
+      catalogVariant.EngineInformation = productVariant.EngineInformation || null;
+      catalogVariant.Identification = productVariant.Identification || null;
+      catalogVariant.Dimensions = productVariant.Dimensions || null;
+      catalogVariant.FuelInformation = productVariant.FuelInformation || null;
+      catalogVariant.Images = productVariant.Images || null;
+      catalogVariant.EngineTechnology = productVariant.EngineTechnology || null;
+      catalogVariant.FuelDeliverySystem = productVariant.FuelDeliverySystem || null;
+      catalogVariant.SendGiff = productVariant.SendGiff || null;
     });
 }
 async function register(app) {
   await app.registerPlugin({
-    label: "1",
-    name: "ProductNewFieldUpdation",
-    version: "0.1",
+    label: pkg.label,
+    name: pkg.name,
+    version: pkg.version,
     functionsByType: {
       startup: [myStartup],
       publishProductToCatalog: [myPublishProductToCatalog],
