@@ -2,7 +2,7 @@
   "name": "@shoaibfarooq3/api-plugin-product-field-updation",
   "description": "Boilerplate plugin for the Reaction API",
   "label": "Product Plugin Updation",
-  "version": "6.6.2-development",
+  "version": "6.6.8-development",
   "main": "index.js",
   "type": "module",
   "engines": {

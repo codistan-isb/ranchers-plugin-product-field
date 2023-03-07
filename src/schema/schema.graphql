@@ -1,8 +1,8 @@
 extend type Product {
   Identification: [Identification]
-  EngineInformation: String
-  Dimensions: String
-  FuelInformation: String
+  EngineInformation: [String]
+  Dimensions: [String]
+  FuelInformation: [String]
   FuelDeliverySystem: String
   EngineTechnology: String
   Images: String
@@ -10,31 +10,31 @@ extend type Product {
 }
 extend type ProductVariant {
   Identification: [Identification]
-  EngineInformation: String
-  Dimensions: String
-  FuelInformation: String
+  EngineInformation: [String]
+  Dimensions: [String]
+  FuelInformation: [String]
   FuelDeliverySystem: String
   EngineTechnology: String
-  Images: String
-  SendGiff: String
+  Images: [String]
+  SendGiff: [String]
 }
 
 extend type CatalogProduct {
   Identification: [Identification]
-  EngineInformation: String
-  Dimensions: String
-  FuelInformation: String
+  EngineInformation: [String]
+  Dimensions: [String]
+  FuelInformation: [String]
   FuelDeliverySystem: String
   EngineTechnology: String
-  Images: String
-  SendGiff: String
+  Images: [String]
+  SendGiff: [String]
 }
 
 extend input ProductVariantInput {
-  Identification:  [IdentificationInput]
-  EngineInformation: EngineInformationInput
-  Dimensions: DimensionsInput
-  FuelInformation: FuelInformationInput
+  Identification: [IdentificationInput]
+  EngineInformation: [EngineInformationInput]
+  Dimensions: [DimensionsInput]
+  FuelInformation: [FuelInformationInput]
   FuelDeliverySystem: String
   EngineTechnology: String
   Images: [ImagesInput]
@@ -43,9 +43,9 @@ extend input ProductVariantInput {
 
 extend input ProductInput {
   Identification: [IdentificationInput]
-  EngineInformation: EngineInformationInput
-  Dimensions: DimensionsInput
-  FuelInformation: FuelInformationInput
+  EngineInformation: [EngineInformationInput]
+  Dimensions: [DimensionsInput]
+  FuelInformation: [FuelInformationInput]
   FuelDeliverySystem: String
   EngineTechnology: String
   Images: [ImagesInput]
@@ -67,14 +67,14 @@ input SendGiffInput {
 
 input IdentificationInput {
   Make: String
-  ModelYear: String
+  ModelYear: Int
   Classification: String
   ID: String
   Year: Int
 }
 type Identification {
   Make: String
-  ModelYear: String
+  ModelYear: Int
   Classification: String
   ID: String
   Year: Int
