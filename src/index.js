@@ -8,14 +8,36 @@ import SimpleSchema from "simpl-schema";
 
 
 const Attributes = new SimpleSchema({
-    attributeName: {
+    attributeName1: {
         type: String,
-        min: 0,
         optional: true,
     },
-    attributeValue: {
+    attributeValue1: {
         type: String,
-        min: 0,
+        optional: true,
+    },
+    attributeName2: {
+        type: String,
+        optional: true,
+    },
+    attributeValue2: {
+        type: String,
+        optional: true,
+    },
+    attributeName3: {
+        type: String,
+        optional: true,
+    },
+    attributeValue3: {
+        type: String,
+        optional: true,
+    },
+    attributeName4: {
+        type: String,
+        optional: true,
+    },
+    attributeValue4: {
+        type: String,
         optional: true,
     },
 });
@@ -41,6 +63,10 @@ function myStartup(context) {
         "Attributes.$": {
             type: Attributes,
         },
+        oldId: {
+            type: Number,
+            optional: true,
+        },
     });
     context.simpleSchemas.ProductVariant.extend({
         sku: {
@@ -61,6 +87,10 @@ function myStartup(context) {
         },
         "Attributes.$": {
             type: Attributes,
+        },
+        oldId: {
+            type: Number,
+            optional: true,
         },
     });
     context.simpleSchemas.CatalogProductVariant.extend({
@@ -83,6 +113,10 @@ function myStartup(context) {
         "Attributes.$": {
             type: Attributes,
         },
+        oldId: {
+            type: Number,
+            optional: true,
+        },
     });
 }
 
@@ -98,8 +132,8 @@ function myPublishProductToCatalog(
             catalogVariant.sku = productVariant.sku || null;
             catalogVariant.isFeatured = productVariant.isFeatured || null;
             catalogVariant.Category = productVariant.Category || null;
-            catalogVariant.FuelInformation = productVariant.FuelInformation || null;
             catalogVariant.Attributes = productVariant.Attributes || null;
+            catalogVariant.oldId = productVariant.oldId || null;
         });
 }
 

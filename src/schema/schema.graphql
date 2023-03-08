@@ -3,6 +3,8 @@ extend type Product {
   isFeatured: String
   Category: String
   Attributes: [String]
+  oldId: Int
+  Images: String
 }
 
 extend type ProductVariant {
@@ -10,6 +12,8 @@ extend type ProductVariant {
   isFeatured: String
   Category: String
   Attributes: [String]
+  oldId: Int
+  Images: [String]
 }
 
 extend type CatalogProductVariant {
@@ -17,21 +21,39 @@ extend type CatalogProductVariant {
   isFeatured: String
   Category: String
   Attributes: [String]
+  oldId: Int
+  Images: [String]
 }
 extend input ProductInput {
   sku: String
   isFeatured: String
   Category: String
   Attributes: [AttributesInput]
+  oldId: Int
+  Images: [String]
 }
 extend input ProductVariantInput {
   sku: String
   isFeatured: String
   Category: String
   Attributes: [AttributesInput]
+  oldId: Int
+  Images: [String]
 }
 
 input AttributesInput {
-  attributeName: String
-  attributeValue: Int
+  attributeName1: String
+  attributeValue1: String
+  attributeName2: String
+  attributeValue2: String
+  attributeName3: String
+  attributeValue3: String
+  attributeName4: String
+  attributeValue4: String
+}
+type Images {
+  imageLink: String
+}
+input ImagesInput {
+  imageLink: String
 }
