@@ -67,6 +67,14 @@ function myStartup(context) {
             type: Number,
             optional: true,
         },
+        regularPrice: {
+            type: Number,
+            optional: true,
+        },
+        Parent: {
+            type: String,
+            optional: true,
+        },
     });
     context.simpleSchemas.ProductVariant.extend({
         sku: {
@@ -90,6 +98,14 @@ function myStartup(context) {
         },
         oldId: {
             type: Number,
+            optional: true,
+        },
+        regularPrice: {
+            type: Number,
+            optional: true,
+        },
+        Parent: {
+            type: String,
             optional: true,
         },
     });
@@ -117,6 +133,14 @@ function myStartup(context) {
             type: Number,
             optional: true,
         },
+        regularPrice: {
+            type: Number,
+            optional: true,
+        },
+        Parent: {
+            type: String,
+            optional: true,
+        },
     });
 }
 
@@ -134,6 +158,8 @@ function myPublishProductToCatalog(
             catalogVariant.Category = productVariant.Category || null;
             catalogVariant.Attributes = productVariant.Attributes || null;
             catalogVariant.oldId = productVariant.oldId || null;
+            catalogVariant.Parent = productVariant.Parent || null;
+            catalogVariant.regularPrice = productVariant.regularPrice || null;
         });
 }
 

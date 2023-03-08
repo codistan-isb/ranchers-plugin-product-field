@@ -5,6 +5,8 @@ extend type Product {
   Attributes: [String]
   oldId: Int
   Images: String
+  Parent: String
+  regularPrice: Int
 }
 
 extend type ProductVariant {
@@ -14,6 +16,8 @@ extend type ProductVariant {
   Attributes: [String]
   oldId: Int
   Images: [String]
+  Parent: String
+  regularPrice: Int
 }
 
 extend type CatalogProductVariant {
@@ -23,6 +27,8 @@ extend type CatalogProductVariant {
   Attributes: [String]
   oldId: Int
   Images: [String]
+  Parent: String
+  regularPrice: Int
 }
 extend input ProductInput {
   sku: String
@@ -31,6 +37,8 @@ extend input ProductInput {
   Attributes: [AttributesInput]
   oldId: Int
   Images: [String]
+  Parent: String
+  regularPrice: Int
 }
 extend input ProductVariantInput {
   sku: String
@@ -39,6 +47,8 @@ extend input ProductVariantInput {
   Attributes: [AttributesInput]
   oldId: Int
   Images: [String]
+  Parent: String
+  regularPrice: Int
 }
 
 input AttributesInput {
