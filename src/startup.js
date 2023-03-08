@@ -1,55 +1,65 @@
 export default function myStartup(context) {
-  context.simpleSchemas.CreateProductInput.extend({
-    Chassis: {
+  context.simpleSchemas.Product.extend({
+    sku: {
       type: String,
-      min: 0,
       optional: true,
     },
-    Colour: {
+    isFeatured: {
       type: String,
-      min: 0,
       optional: true,
     },
-    Sunroof: {
+    Category: {
       type: String,
-      min: 0,
       optional: true,
+    },
+    Attributes: {
+      type: Array,
+      optional: true,
+    },
+    "Attributes.$": {
+      type: Attributes,
     },
   });
-
   context.simpleSchemas.ProductVariant.extend({
-    Chassis: {
+    sku: {
       type: String,
-      min: 0,
       optional: true,
     },
-    Colour: {
+    isFeatured: {
       type: String,
-      min: 0,
       optional: true,
     },
-    Sunroof: {
+    Category: {
       type: String,
-      min: 0,
       optional: true,
+    },
+    Attributes: {
+      type: Array,
+      optional: true,
+    },
+    "Attributes.$": {
+      type: Attributes,
     },
   });
-
   context.simpleSchemas.CatalogProductVariant.extend({
-    Sunroof: {
+    sku: {
       type: String,
-      min: 0,
       optional: true,
     },
-    Colour: {
+    isFeatured: {
       type: String,
-      min: 0,
       optional: true,
     },
-    Chassis: {
+    Category: {
       type: String,
-      min: 0,
       optional: true,
+    },
+    Attributes: {
+      type: Array,
+      optional: true,
+    },
+    "Attributes.$": {
+      type: Attributes,
     },
   });
 }

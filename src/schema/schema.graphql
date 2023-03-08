@@ -1,120 +1,37 @@
 extend type Product {
-  Identification: [Identification]
-  EngineInformation: [String]
-  Dimensions: [String]
-  FuelInformation: [String]
-  FuelDeliverySystem: String
-  EngineTechnology: String
-  Images: String
-  SendGiff: String
+  sku: String
+  isFeatured: String
+  Category: String
+  Attributes: [String]
 }
+
 extend type ProductVariant {
-  Identification: [Identification]
-  EngineInformation: [String]
-  Dimensions: [String]
-  FuelInformation: [String]
-  FuelDeliverySystem: String
-  EngineTechnology: String
-  Images: [String]
-  SendGiff: [String]
+  sku: String
+  isFeatured: String
+  Category: String
+  Attributes: [String]
 }
 
-extend type CatalogProduct {
-  Identification: [Identification]
-  EngineInformation: [String]
-  Dimensions: [String]
-  FuelInformation: [String]
-  FuelDeliverySystem: String
-  EngineTechnology: String
-  Images: [String]
-  SendGiff: [String]
+extend type CatalogProductVariant {
+  sku: String
+  isFeatured: String
+  Category: String
+  Attributes: [String]
 }
-
-extend input ProductVariantInput {
-  Identification: [IdentificationInput]
-  EngineInformation: [EngineInformationInput]
-  Dimensions: [DimensionsInput]
-  FuelInformation: [FuelInformationInput]
-  FuelDeliverySystem: String
-  EngineTechnology: String
-  Images: [ImagesInput]
-  SendGiff: [SendGiffInput]
-}
-
 extend input ProductInput {
-  Identification: [IdentificationInput]
-  EngineInformation: [EngineInformationInput]
-  Dimensions: [DimensionsInput]
-  FuelInformation: [FuelInformationInput]
-  FuelDeliverySystem: String
-  EngineTechnology: String
-  Images: [ImagesInput]
-  SendGiff: [SendGiffInput]
+  sku: String
+  isFeatured: String
+  Category: String
+  Attributes: [AttributesInput]
 }
-type Images {
-  imageLink: String
-}
-input ImagesInput {
-  imageLink: String
+extend input ProductVariantInput {
+  sku: String
+  isFeatured: String
+  Category: String
+  Attributes: [AttributesInput]
 }
 
-type SendGiff {
-  imageLink: String
-}
-input SendGiffInput {
-  imageLink: String
-}
-
-input IdentificationInput {
-  Make: String
-  ModelYear: Int
-  Classification: String
-  ID: String
-  Year: Int
-}
-type Identification {
-  Make: String
-  ModelYear: Int
-  Classification: String
-  ID: String
-  Year: Int
-}
-
-input EngineInformationInput {
-  Driveline: String
-  EngineType: String
-  Hybrid: Boolean
-  NumberofForwardGears: Int
-  Transmission: String
-  Horsepower: Int
-  Torque: Int
-}
-type EngineInformation {
-  Driveline: String
-  EngineType: String
-  Hybrid: Boolean
-  NumberofForwardGears: Int
-  Transmission: String
-}
-
-type Dimensions {
-  Height: Int
-  Length: Int
-  Width: Int
-}
-input DimensionsInput {
-  Height: Int
-  Length: Int
-  Width: Int
-}
-
-type FuelInformation {
-  Citympg: Int
-  FuelType: String
-  Highwaympg: Int
-}
-input FuelInformationInput {
-  Citympg: Int
-  FuelType: String
-  Highwaympg: Int
+input AttributesInput {
+  attributeName: String
+  attributeValue: Int
 }
