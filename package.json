@@ -1,8 +1,8 @@
 {
-  "name": "@shoaibfarooq3/api-plugin-product-field-updation",
+  "name": "@shoaibfarooq3/ranchers-plugin-product-field-updaion",
   "description": "Boilerplate plugin for the Reaction API",
   "label": "Product Plugin Updation",
-  "version": "6.6.8-development",
+  "version": "3.0.0-development",
   "main": "index.js",
   "type": "module",
   "engines": {
