@@ -42,6 +42,13 @@ const Attributes = new SimpleSchema({
     },
 });
 
+const Images = new SimpleSchema({
+    imageLink: {
+        type: String,
+        optional: true,
+    },
+});
+
 function myStartup(context) {
     context.simpleSchemas.Product.extend({
         sku: {
@@ -63,6 +70,13 @@ function myStartup(context) {
         "Attributes.$": {
             type: Attributes,
         },
+        Images: {
+            type: Array,
+            optional: true,
+        },
+        "Images.$": {
+            type: Images,
+        },
         oldId: {
             type: Number,
             optional: true,
@@ -77,6 +91,13 @@ function myStartup(context) {
         },
     });
     context.simpleSchemas.ProductVariant.extend({
+        Images: {
+            type: Array,
+            optional: true,
+        },
+        "Images.$": {
+            type: Images,
+        },
         sku: {
             type: String,
             optional: true,
@@ -110,6 +131,13 @@ function myStartup(context) {
         },
     });
     context.simpleSchemas.CatalogProductVariant.extend({
+        Images: {
+            type: Array,
+            optional: true,
+        },
+        "Images.$": {
+            type: Images,
+        },
         sku: {
             type: String,
             optional: true,
