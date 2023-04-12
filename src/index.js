@@ -6,6 +6,21 @@ const require = createRequire(import.meta.url);
 const pkg = require("../package.json");
 import SimpleSchema from "simpl-schema";
 
+const AttributesProduct = new SimpleSchema({
+    key: {
+        type: String,
+        optional: true,
+    },
+    name: {
+        type: String,
+        optional: true,
+    },
+    value: {
+        type: String,
+        optional: true,
+    }
+});
+
 
 const Attributes = new SimpleSchema({
     attributeName1: {
@@ -68,7 +83,7 @@ function myStartup(context) {
             optional: true,
         },
         "Attributes.$": {
-            type: Attributes,
+            type: AttributesProduct,
         },
         Images: {
             type: Array,
@@ -115,7 +130,7 @@ function myStartup(context) {
             optional: true,
         },
         "Attributes.$": {
-            type: Attributes,
+            type: AttributesProduct,
         },
         oldId: {
             type: Number,
@@ -129,6 +144,18 @@ function myStartup(context) {
             type: String,
             optional: true,
         },
+    });
+    context.simpleSchemas.CatalogProduct.extend({
+       
+     
+        Attributes: {
+            type: Array,
+            optional: true,
+        },
+        "Attributes.$": {
+            type: AttributesProduct,
+        }
+    
     });
     context.simpleSchemas.CatalogProductVariant.extend({
         Images: {
@@ -155,7 +182,7 @@ function myStartup(context) {
             optional: true,
         },
         "Attributes.$": {
-            type: Attributes,
+            type: AttributesProduct,
         },
         oldId: {
             type: Number,
@@ -176,6 +203,12 @@ function myPublishProductToCatalog(
     catalogProduct,
     { context, product, shop, variants }
 ) {
+    console.log("product",catalogProduct)
+    if(product.Attributes){
+        catalogProduct.Attributes = product.Attributes;
+
+    }
+
     catalogProduct.variants &&
         catalogProduct.variants.map((catalogVariant) => {
             const productVariant = variants.find(
