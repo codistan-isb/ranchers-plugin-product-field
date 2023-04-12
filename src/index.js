@@ -66,6 +66,10 @@ const Images = new SimpleSchema({
 
 function myStartup(context) {
     context.simpleSchemas.Product.extend({
+        isDeal: {
+            type: Boolean,
+            optional: true,
+        },
         sku: {
             type: String,
             optional: true,
@@ -106,6 +110,10 @@ function myStartup(context) {
         },
     });
     context.simpleSchemas.ProductVariant.extend({
+        isDeal: {
+            type: Boolean,
+            optional: true,
+        },
         Images: {
             type: Array,
             optional: true,
@@ -146,8 +154,10 @@ function myStartup(context) {
         },
     });
     context.simpleSchemas.CatalogProduct.extend({
-       
-     
+        isDeal: {
+            type: Boolean,
+            optional: true,
+        },
         Attributes: {
             type: Array,
             optional: true,
@@ -155,9 +165,13 @@ function myStartup(context) {
         "Attributes.$": {
             type: AttributesProduct,
         }
-    
+
     });
     context.simpleSchemas.CatalogProductVariant.extend({
+        isDeal: {
+            type: Boolean,
+            optional: true,
+        },
         Images: {
             type: Array,
             optional: true,
@@ -203,9 +217,13 @@ function myPublishProductToCatalog(
     catalogProduct,
     { context, product, shop, variants }
 ) {
-    console.log("product",catalogProduct)
-    if(product.Attributes){
+    console.log("product", catalogProduct)
+    if (product.Attributes) {
         catalogProduct.Attributes = product.Attributes;
+
+    }
+    if (product.isDeal) {
+        catalogProduct.isDeal = product.isDeal;
 
     }
 
@@ -221,6 +239,7 @@ function myPublishProductToCatalog(
             catalogVariant.oldId = productVariant.oldId || null;
             catalogVariant.Parent = productVariant.Parent || null;
             catalogVariant.regularPrice = productVariant.regularPrice || null;
+            catalogVariant.isDeal = productVariant.isDeal || null;
         });
 }
 

@@ -7,12 +7,13 @@ extend type Product {
   Images: String
   Parent: String
   regularPrice: Int
+  isDeal: Boolean
 }
-type ProductAttributes{
-  name:String
-  value:String 
-  key:String
-
+type ProductAttributes {
+  name: String
+  value: String
+  key: String
+  isDeal: Boolean
 }
 extend type ProductVariant {
   sku: String
@@ -23,9 +24,11 @@ extend type ProductVariant {
   Images: [String]
   Parent: String
   regularPrice: Int
+  isDeal: Boolean
 }
 
 extend type CatalogProduct {
+  isDeal: Boolean
   sku: String
   isFeatured: String
   Category: String
@@ -36,6 +39,7 @@ extend type CatalogProduct {
   regularPrice: Int
 }
 extend type CatalogProductVariant {
+  isDeal: Boolean
   sku: String
   isFeatured: String
   Category: String
@@ -56,6 +60,7 @@ extend input ProductInput {
   regularPrice: Int
 }
 extend input ProductVariantInput {
+  isDeal: Boolean
   sku: String
   isFeatured: String
   Category: String
@@ -67,9 +72,9 @@ extend input ProductVariantInput {
 }
 
 input AttributesInput {
-  key:String
-  name:String
-  value:String
+  key: String
+  name: String
+  value: String
 }
 type Images {
   imageLink: String
