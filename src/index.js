@@ -217,7 +217,7 @@ function myPublishProductToCatalog(
     catalogProduct,
     { context, product, shop, variants }
 ) {
-    console.log("product", catalogProduct)
+    // console.log("product", catalogProduct)
     if (product.Attributes) {
         catalogProduct.Attributes = product.Attributes;
 
