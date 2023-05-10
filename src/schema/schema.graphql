@@ -18,6 +18,7 @@ type ProductAttributes {
 extend type ProductVariant {
   sku: String
   isFeatured: String
+  featuredImage: String
   Category: String
   Attributes: [ProductAttributes]
   oldId: Int
@@ -31,6 +32,7 @@ extend type CatalogProduct {
   isDeal: Boolean
   sku: String
   isFeatured: String
+  featuredImage: String
   Category: String
   Attributes: [ProductAttributes]
   oldId: Int
@@ -42,6 +44,7 @@ extend type CatalogProductVariant {
   isDeal: Boolean
   sku: String
   isFeatured: String
+  featuredImage: String
   Category: String
   Attributes: [ProductAttributes]
   oldId: Int
@@ -52,6 +55,7 @@ extend type CatalogProductVariant {
 extend input ProductInput {
   sku: String
   isFeatured: String
+  featuredImage: String
   Category: String
   Attributes: [AttributesInput]
   oldId: Int
@@ -63,6 +67,7 @@ extend input ProductVariantInput {
   isDeal: Boolean
   sku: String
   isFeatured: String
+  featuredImage: String
   Category: String
   Attributes: [AttributesInput]
   oldId: Int

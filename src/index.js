@@ -78,6 +78,10 @@ function myStartup(context) {
             type: String,
             optional: true,
         },
+        featuredImage: {
+            type: String,
+            optional: true
+        },
         Category: {
             type: String,
             optional: true,
@@ -128,6 +132,10 @@ function myStartup(context) {
         isFeatured: {
             type: String,
             optional: true,
+        },
+        featuredImage: {
+            type: String,
+            optional: true
         },
         Category: {
             type: String,
@@ -187,6 +195,10 @@ function myStartup(context) {
             type: String,
             optional: true,
         },
+        featuredImage: {
+            type: String,
+            optional: true
+        },
         Category: {
             type: String,
             optional: true,
@@ -234,6 +246,8 @@ function myPublishProductToCatalog(
             );
             catalogVariant.sku = productVariant.sku || null;
             catalogVariant.isFeatured = productVariant.isFeatured || null;
+            catalogVariant.featuredImage = productVariant.featuredImage || null;
+            catalogVariant.featuredImage = productVariant.featuredImage || null;
             catalogVariant.Category = productVariant.Category || null;
             catalogVariant.Attributes = productVariant.Attributes || null;
             catalogVariant.oldId = productVariant.oldId || null;
