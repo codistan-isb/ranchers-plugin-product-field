@@ -172,7 +172,11 @@ function myStartup(context) {
         },
         "Attributes.$": {
             type: AttributesProduct,
-        }
+        },
+        featuredImage: {
+            type: String,
+            optional: true
+        },
 
     });
     context.simpleSchemas.CatalogProductVariant.extend({
@@ -229,7 +233,7 @@ function myPublishProductToCatalog(
     catalogProduct,
     { context, product, shop, variants }
 ) {
-    // console.log("product", catalogProduct)
+    console.log("product", catalogProduct)
     if (product.Attributes) {
         catalogProduct.Attributes = product.Attributes;
 
@@ -238,7 +242,14 @@ function myPublishProductToCatalog(
         catalogProduct.isDeal = product.isDeal;
 
     }
+    if (product.isFeatured) {
+        catalogProduct.isDeal = product.isDeal;
 
+    }
+    if (product.featuredImage) {
+        catalogProduct.featuredImage = product.featuredImage;
+
+    }
     catalogProduct.variants &&
         catalogProduct.variants.map((catalogVariant) => {
             const productVariant = variants.find(

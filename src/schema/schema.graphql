@@ -1,6 +1,7 @@
 extend type Product {
   sku: String
   isFeatured: String
+  featuredImage: String
   Category: String
   Attributes: [ProductAttributes]
   oldId: Int
