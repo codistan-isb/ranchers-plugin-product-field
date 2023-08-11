@@ -240,15 +240,12 @@ function myPublishProductToCatalog(
     }
     if (product.isDeal) {
         catalogProduct.isDeal = product.isDeal;
-
     }
     if (product.isFeatured) {
         catalogProduct.isDeal = product.isDeal;
-
     }
     if (product.featuredImage) {
         catalogProduct.featuredImage = product.featuredImage;
-
     }
     catalogProduct.variants &&
         catalogProduct.variants.map((catalogVariant) => {
@@ -257,7 +254,6 @@ function myPublishProductToCatalog(
             );
             catalogVariant.sku = productVariant.sku || null;
             catalogVariant.isFeatured = productVariant.isFeatured || null;
-            catalogVariant.featuredImage = productVariant.featuredImage || null;
             catalogVariant.featuredImage = productVariant.featuredImage || null;
             catalogVariant.Category = productVariant.Category || null;
             catalogVariant.Attributes = productVariant.Attributes || null;

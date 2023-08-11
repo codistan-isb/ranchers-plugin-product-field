@@ -63,6 +63,7 @@ extend input ProductInput {
   Images: [String]
   Parent: String
   regularPrice: Int
+  isDeal: Boolean
 }
 extend input ProductVariantInput {
   isDeal: Boolean
