@@ -2,6 +2,8 @@ import { createRequire } from "module";
 import importAsString from "@reactioncommerce/api-utils/importAsString.js";
 const mySchema = importAsString("./schema/schema.graphql");
 // const pkg = createRequire("../package.json");
+import myResolvers from "./resolvers/resolvers.js";
+
 const require = createRequire(import.meta.url);
 const pkg = require("../package.json");
 import SimpleSchema from "simpl-schema";
@@ -271,6 +273,7 @@ async function register(app) {
     },
     graphQL: {
       schemas: [mySchema],
+      resolvers: myResolvers,
     },
   });
 }

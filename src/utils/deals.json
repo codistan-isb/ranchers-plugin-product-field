@@ -1,0 +1,386 @@
+[
+  {
+    "Flavors_1": "Chicken Fajita",
+    "Flavors_2": "Chicken Fajita",
+    "Drink": "Pepsi",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Chicken Fajita",
+    "Flavors_2": "Chicken Fajita",
+    "Drink": "Dew",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Chicken Fajita",
+    "Flavors_2": "Chicken Fajita",
+    "Drink": "7up",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Chicken Fajita",
+    "Flavors_2": "Chicken Fajita",
+    "Drink": "Mirinda",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Chicken Fajita",
+    "Flavors_2": "Chicken Tikka",
+    "Drink": "Pepsi",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Chicken Fajita",
+    "Flavors_2": "Chicken Tikka",
+    "Drink": "Dew",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Chicken Fajita",
+    "Flavors_2": "Chicken Tikka",
+    "Drink": "7up",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Chicken Fajita",
+    "Flavors_2": "Chicken Tikka",
+    "Drink": "Mirinda",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Chicken Fajita",
+    "Flavors_2": "Pepperoni",
+    "Drink": "Pepsi",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Chicken Fajita",
+    "Flavors_2": "Pepperoni",
+    "Drink": "Dew",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Chicken Fajita",
+    "Flavors_2": "Pepperoni",
+    "Drink": "7up",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Chicken Fajita",
+    "Flavors_2": "Pepperoni",
+    "Drink": "Mirinda",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Chicken Fajita",
+    "Flavors_2": "Ranch Special",
+    "Drink": "Pepsi",
+    "price": 1599
+  },
+  {
+    "Flavors_1": "Chicken Fajita",
+    "Flavors_2": "Ranch Special",
+    "Drink": "Dew",
+    "price": 1599
+  },
+  {
+    "Flavors_1": "Chicken Fajita",
+    "Flavors_2": "Ranch Special",
+    "Drink": "7up",
+    "price": 1599
+  },
+  {
+    "Flavors_1": "Chicken Fajita",
+    "Flavors_2": "Ranch Special",
+    "Drink": "Mirinda",
+    "price": 1599
+  },
+  {
+    "Flavors_1": "Chicken Tikka",
+    "Flavors_2": "Chicken Fajita",
+    "Drink": "Pepsi",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Chicken Tikka",
+    "Flavors_2": "Chicken Fajita",
+    "Drink": "Dew",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Chicken Tikka",
+    "Flavors_2": "Chicken Fajita",
+    "Drink": "7up",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Chicken Tikka",
+    "Flavors_2": "Chicken Fajita",
+    "Drink": "Mirinda",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Chicken Tikka",
+    "Flavors_2": "Chicken Tikka",
+    "Drink": "Pepsi",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Chicken Tikka",
+    "Flavors_2": "Chicken Tikka",
+    "Drink": "Dew",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Chicken Tikka",
+    "Flavors_2": "Chicken Tikka",
+    "Drink": "7up",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Chicken Tikka",
+    "Flavors_2": "Chicken Tikka",
+    "Drink": "Mirinda",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Chicken Tikka",
+    "Flavors_2": "Pepperoni",
+    "Drink": "Pepsi",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Chicken Tikka",
+    "Flavors_2": "Pepperoni",
+    "Drink": "Dew",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Chicken Tikka",
+    "Flavors_2": "Pepperoni",
+    "Drink": "7up",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Chicken Tikka",
+    "Flavors_2": "Pepperoni",
+    "Drink": "Mirinda",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Chicken Tikka",
+    "Flavors_2": "Ranch Special",
+    "Drink": "Pepsi",
+    "price": 1599
+  },
+  {
+    "Flavors_1": "Chicken Tikka",
+    "Flavors_2": "Ranch Special",
+    "Drink": "Dew",
+    "price": 1599
+  },
+  {
+    "Flavors_1": "Chicken Tikka",
+    "Flavors_2": "Ranch Special",
+    "Drink": "7up",
+    "price": 1599
+  },
+  {
+    "Flavors_1": "Chicken Tikka",
+    "Flavors_2": "Ranch Special",
+    "Drink": "Mirinda",
+    "price": 1599
+  },
+  {
+    "Flavors_1": "Pepperoni",
+    "Flavors_2": "Chicken Fajita",
+    "Drink": "Pepsi",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Pepperoni",
+    "Flavors_2": "Chicken Fajita",
+    "Drink": "Dew",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Pepperoni",
+    "Flavors_2": "Chicken Fajita",
+    "Drink": "7up",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Pepperoni",
+    "Flavors_2": "Chicken Fajita",
+    "Drink": "Mirinda",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Pepperoni",
+    "Flavors_2": "Chicken Tikka",
+    "Drink": "Pepsi",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Pepperoni",
+    "Flavors_2": "Chicken Tikka",
+    "Drink": "Dew",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Pepperoni",
+    "Flavors_2": "Chicken Tikka",
+    "Drink": "7up",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Pepperoni",
+    "Flavors_2": "Chicken Tikka",
+    "Drink": "Mirinda",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Pepperoni",
+    "Flavors_2": "Pepperoni",
+    "Drink": "Pepsi",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Pepperoni",
+    "Flavors_2": "Pepperoni",
+    "Drink": "Dew",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Pepperoni",
+    "Flavors_2": "Pepperoni",
+    "Drink": "7up",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Pepperoni",
+    "Flavors_2": "Pepperoni",
+    "Drink": "Mirinda",
+    "price": 1499
+  },
+  {
+    "Flavors_1": "Pepperoni",
+    "Flavors_2": "Ranch Special",
+    "Drink": "Pepsi",
+    "price": 1599
+  },
+  {
+    "Flavors_1": "Pepperoni",
+    "Flavors_2": "Ranch Special",
+    "Drink": "Dew",
+    "price": 1599
+  },
+  {
+    "Flavors_1": "Pepperoni",
+    "Flavors_2": "Ranch Special",
+    "Drink": "7up",
+    "price": 1599
+  },
+  {
+    "Flavors_1": "Pepperoni",
+    "Flavors_2": "Ranch Special",
+    "Drink": "Mirinda",
+    "price": 1599
+  },
+  {
+    "Flavors_1": "Ranch Special",
+    "Flavors_2": "Chicken Fajita",
+    "Drink": "Pepsi",
+    "price": 1599
+  },
+  {
+    "Flavors_1": "Ranch Special",
+    "Flavors_2": "Chicken Fajita",
+    "Drink": "Dew",
+    "price": 1599
+  },
+  {
+    "Flavors_1": "Ranch Special",
+    "Flavors_2": "Chicken Fajita",
+    "Drink": "7up",
+    "price": 1599
+  },
+  {
+    "Flavors_1": "Ranch Special",
+    "Flavors_2": "Chicken Fajita",
+    "Drink": "Mirinda",
+    "price": 1599
+  },
+  {
+    "Flavors_1": "Ranch Special",
+    "Flavors_2": "Chicken Tikka",
+    "Drink": "Pepsi",
+    "price": 1599
+  },
+  {
+    "Flavors_1": "Ranch Special",
+    "Flavors_2": "Chicken Tikka",
+    "Drink": "Dew",
+    "price": 1599
+  },
+  {
+    "Flavors_1": "Ranch Special",
+    "Flavors_2": "Chicken Tikka",
+    "Drink": "7up",
+    "price": 1599
+  },
+  {
+    "Flavors_1": "Ranch Special",
+    "Flavors_2": "Chicken Tikka",
+    "Drink": "Mirinda",
+    "price": 1599
+  },
+  {
+    "Flavors_1": "Ranch Special",
+    "Flavors_2": "Pepperoni",
+    "Drink": "Pepsi",
+    "price": 1599
+  },
+  {
+    "Flavors_1": "Ranch Special",
+    "Flavors_2": "Pepperoni",
+    "Drink": "Dew",
+    "price": 1599
+  },
+  {
+    "Flavors_1": "Ranch Special",
+    "Flavors_2": "Pepperoni",
+    "Drink": "7up",
+    "price": 1599
+  },
+  {
+    "Flavors_1": "Ranch Special",
+    "Flavors_2": "Pepperoni",
+    "Drink": "Mirinda",
+    "price": 1599
+  },
+  {
+    "Flavors_1": "Ranch Special",
+    "Flavors_2": "Ranch Special",
+    "Drink": "Pepsi",
+    "price": 1699
+  },
+  {
+    "Flavors_1": "Ranch Special",
+    "Flavors_2": "Ranch Special",
+    "Drink": "Dew",
+    "price": 1699
+  },
+  {
+    "Flavors_1": "Ranch Special",
+    "Flavors_2": "Ranch Special",
+    "Drink": "7up",
+    "price": 1699
+  },
+  {
+    "Flavors_1": "Ranch Special",
+    "Flavors_2": "Ranch Special",
+    "Drink": "Mirinda",
+    "price": 1699
+  }
+]

@@ -89,3 +89,10 @@ type Images {
 input ImagesInput {
   imageLink: String
 }
+
+extend type Mutation {
+  createProductVariantScript(
+    #   "Mutation input"
+    input: CreateProductVariantInput
+  ): Boolean
+}
