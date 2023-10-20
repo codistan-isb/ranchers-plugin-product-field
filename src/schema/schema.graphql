@@ -9,6 +9,8 @@ extend type Product {
   Parent: String
   regularPrice: Int
   isDeal: Boolean
+  Drinks: [ProductAttributes]
+  hashtags: [String]
 }
 type ProductAttributes {
   name: String
@@ -22,6 +24,7 @@ extend type ProductVariant {
   featuredImage: String
   Category: String
   Attributes: [ProductAttributes]
+  Drinks: [ProductAttributes]
   oldId: Int
   Images: [String]
   Parent: String
@@ -36,6 +39,7 @@ extend type CatalogProduct {
   featuredImage: String
   Category: String
   Attributes: [ProductAttributes]
+  Drinks: [ProductAttributes]
   oldId: Int
   Images: [String]
   Parent: String
@@ -48,6 +52,7 @@ extend type CatalogProductVariant {
   featuredImage: String
   Category: String
   Attributes: [ProductAttributes]
+  Drinks: [ProductAttributes]
   oldId: Int
   Images: [String]
   Parent: String
@@ -59,11 +64,13 @@ extend input ProductInput {
   featuredImage: String
   Category: String
   Attributes: [AttributesInput]
+  Drinks: [AttributesInput]
   oldId: Int
   Images: [String]
   Parent: String
   regularPrice: Int
   isDeal: Boolean
+  hashtags: [String]
 }
 extend input ProductVariantInput {
   isDeal: Boolean
@@ -72,6 +79,7 @@ extend input ProductVariantInput {
   featuredImage: String
   Category: String
   Attributes: [AttributesInput]
+  Drinks: [AttributesInput]
   oldId: Int
   Images: [String]
   Parent: String
@@ -89,10 +97,25 @@ type Images {
 input ImagesInput {
   imageLink: String
 }
-
+input updateAny2DealVariantsInput {
+  id: ID
+}
+input updateTrioFeastDealVariantsInput {
+  id: ID
+}
+input createProductVariantScriptInput {
+  shopId: String
+  productId: String
+}
 extend type Mutation {
   createProductVariantScript(
     #   "Mutation input"
-    input: CreateProductVariantInput
+    input: createProductVariantScriptInput
   ): Boolean
+  updateProductVariantScript(
+    #   "Mutation input"
+    input: UpdateProductVariantInput
+  ): Boolean
+  updateAny2DealVariants(input: updateAny2DealVariantsInput): Boolean
+  updateTrioFeastDealVariants(input: updateTrioFeastDealVariantsInput): Boolean
 }

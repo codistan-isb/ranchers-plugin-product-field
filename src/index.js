@@ -94,6 +94,21 @@ function myProductStartup(context) {
     "Attributes.$": {
       type: AttributesProduct,
     },
+    hashtags: {
+      type: Array,
+      optional: true,
+    },
+    "hashtags.$": {
+      type: String,
+    },
+    Drinks: {
+      type: Array,
+      optional: true,
+    },
+    "Drinks.$": {
+      type: AttributesProduct,
+    },
+
     Images: {
       type: Array,
       optional: true,
@@ -149,6 +164,13 @@ function myProductStartup(context) {
     "Attributes.$": {
       type: AttributesProduct,
     },
+    Drinks: {
+      type: Array,
+      optional: true,
+    },
+    "Drinks.$": {
+      type: AttributesProduct,
+    },
     oldId: {
       type: Number,
       optional: true,
@@ -172,6 +194,13 @@ function myProductStartup(context) {
       optional: true,
     },
     "Attributes.$": {
+      type: AttributesProduct,
+    },
+    Drinks: {
+      type: Array,
+      optional: true,
+    },
+    "Drinks.$": {
       type: AttributesProduct,
     },
     featuredImage: {
@@ -214,6 +243,13 @@ function myProductStartup(context) {
     "Attributes.$": {
       type: AttributesProduct,
     },
+    Drinks: {
+      type: Array,
+      optional: true,
+    },
+    "Drinks.$": {
+      type: AttributesProduct,
+    },
     oldId: {
       type: Number,
       optional: true,
@@ -236,6 +272,9 @@ function myPublishProductToCatalog(
   if (product.Attributes) {
     catalogProduct.Attributes = product.Attributes;
   }
+  if (product.Drinks) {
+    catalogProduct.Drinks = product.Drinks;
+  }
   if (product.isDeal) {
     catalogProduct.isDeal = product.isDeal;
   }
@@ -255,6 +294,7 @@ function myPublishProductToCatalog(
       catalogVariant.featuredImage = productVariant.featuredImage || null;
       catalogVariant.Category = productVariant.Category || null;
       catalogVariant.Attributes = productVariant.Attributes || null;
+      catalogVariant.Drinks = productVariant.Drinks || null;
       catalogVariant.oldId = productVariant.oldId || null;
       catalogVariant.Parent = productVariant.Parent || null;
       catalogVariant.regularPrice = productVariant.regularPrice || null;
