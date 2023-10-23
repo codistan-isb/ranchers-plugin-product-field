@@ -8,6 +8,10 @@ export default function myStartup(context) {
       type: String,
       optional: true,
     },
+    featuredImage: {
+      type: String,
+      optional: true
+    },
     Category: {
       type: String,
       optional: true,
@@ -29,6 +33,10 @@ export default function myStartup(context) {
       type: String,
       optional: true,
     },
+    featuredImage: {
+      type: String,
+      optional: true
+    },
     Category: {
       type: String,
       optional: true,
@@ -49,6 +57,10 @@ export default function myStartup(context) {
     isFeatured: {
       type: String,
       optional: true,
+    },
+    featuredImage: {
+      type: String,
+      optional: true
     },
     Category: {
       type: String,
