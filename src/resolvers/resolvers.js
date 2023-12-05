@@ -1,10 +1,157 @@
 import deals from "../utils/newFile.json";
+import any2Deal from "../utils/any2Deal.json";
 import ReactionError from "@reactioncommerce/reaction-error";
 import Random from "@reactioncommerce/random";
 import { decodeShopOpaqueId, decodeProductOpaqueId } from "../xforms/id.js";
 import generateVariants from "../utils/generateVariants.js";
 export default {
   Mutation: {
+    async createAny2Deal(parent, { input }, context, info) {
+      try {
+        let { productId, shopId } = input;
+        const results = await Promise.all(any2Deal.map(async element => {
+          input = {
+            shopId,
+            productId,
+            variant: {
+              isDeleted: false,
+              isVisible: true,
+              attributeLabel:
+                "Any 2 Deal - " + element.Burger_1 +
+                " - " +
+                element.Burger_2 +
+                " - " +
+                element.Drink_1 +
+                " - " +
+                element.Drink_2,
+              optionTitle:
+                "Any 2 Deal - " + element.Burger_1 +
+                " - " +
+                element.Burger_2 +
+                " - " +
+                element.Drink_1 +
+                " - " +
+                element.Drink_2,
+              sku: "ranchers-1291",
+              title:
+                "Any 2 Deal - " + element.Burger_1 +
+                " - " +
+                element.Burger_2 +
+                " - " +
+                element.Drink_1 +
+                " - " +
+                element.Drink_2,
+              price: parseInt(element.Price),
+              isFeatured: "0",
+              Attributes: [
+                { key: "Burger 1", name: "Burger 1", value: element.Burger_1 },
+                { key: "Burger 2", name: "Burger 2", value: element.Burger_2 },
+                { key: "Drink 1", name: "Drink 1", value: element.Drink_1 },
+                { key: "Drink 2", name: "Drink 2", value: element.Drink_2 },
+              ],
+              Parent: decodeProductOpaqueId(productId),
+              isTaxable: true,
+            },
+          };
+          console.log("input ", input);
+          try {
+            const variantResp = await context.mutations.createProductVariant(
+              context,
+              {
+                productId: decodeProductOpaqueId(input.productId),
+                shopId: decodeShopOpaqueId(input.shopId),
+                variant: input.variant,
+              }
+            );
+            console.log("variantResp ", variantResp);
+            if (variantResp) {
+              return true;
+            } else {
+              return false;
+            }
+          } catch (error) {
+            console.log("error", error);
+          }
+        }));
+
+        // console.log("any2Deal", any2Deal);
+        // any2Deal.forEach(async element => {
+        //   // console.log("element", element);
+        //   // console.log("element", element.price);
+        //   input = {
+        //     shopId,
+        //     productId,
+        //     // shopId: "cmVhY3Rpb24vc2hvcDo0TjNzNlNCQ0VUNWpuNlJHZg==",
+        //     // productId: "cmVhY3Rpb24vcHJvZHVjdDpEODVoMkd1cWt3OURuQ21KRA==",
+        //     variant: {
+        //       isDeleted: false,
+        //       isVisible: true,
+        //       attributeLabel:
+        //         element.Burger_1 +
+        //         "-" +
+        //         element.Burger_2 +
+        //         "-" +
+        //         element.Drink_1 +
+        //         "-" +
+        //         element.Drink_2,
+        //       optionTitle:
+        //         element.Burger_1 +
+        //         "-" +
+        //         element.Burger_2 +
+        //         "-" +
+        //         element.Drink_1 +
+        //         "-" +
+        //         element.Drink_2,
+        //       sku: "ranchers-1291",
+        //       title:
+        //         element.Burger_1 +
+        //         "-" +
+        //         element.Burger_2 +
+        //         "-" +
+        //         element.Drink_1 +
+        //         "-" +
+        //         element.Drink_2,
+        //       price: element.Price,
+        //       isFeatured: "0",
+        //       Attributes: [
+        //         { key: "Burger 1", name: "Burger 1", value: element.Burger_1 },
+        //         { key: "Burger 2", name: "Burger 2", value: element.Burger_2 },
+        //         { key: "Drink 1", name: "Drink 1", value: element.Drink_1 },
+        //         { key: "Drink 2", name: "Drink 2", value: element.Drink_2 },
+        //       ],
+        //       Parent: productId,
+        //       // Parent: "cmVhY3Rpb24vcHJvZHVjdDpEODVoMkd1cWt3OURuQ21KRA==",
+        //       isTaxable: true,
+        //     },
+        //   };
+        //   console.log("input ", input);
+        //   try {
+        //     const variantResp = await context.mutations.createProductVariant(
+        //       context,
+        //       {
+        //         productId: decodeProductOpaqueId(input.productId),
+        //         shopId: decodeShopOpaqueId(input.shopId),
+        //         variant: input.variant,
+        //       }
+        //     );
+        //     console.log("variantResp ", variantResp);
+        //     if (variantResp) {
+        //       return true;
+        //     } else {
+        //       return false;
+        //     }
+        //   } catch (error) {
+        //     console.log("error", error);
+
+        //   }
+
+
+        // });
+
+      } catch (error) {
+        console.log("error", error);
+      }
+    },
     async createProductVariantScript(parent, { input }, context, info) {
       try {
         // console.log("deals ", deals);
@@ -140,6 +287,15 @@ export default {
     },
     async updateProductVariantScript(parent, { input }, context, info) {
       console.log("input ", input);
+      const { appEvents, collections, userId } = context;
+      const { Products } = collections;
+      let inputValue;
+      let { productId, shopId } = input;
+      const filter = { "ancestors": [productId] };
+      const update = { $set: { "price": NumberInt(1599), updatedAt: new Date(), } };
+
+      await Products.updateMany(filter, update)
+
     },
     async updateAny2DealVariants(parent, { input }, context, info) {
       console.log("input", input);
@@ -231,5 +387,9 @@ export default {
       }
       return true;
     },
+    async updateProductScript(parent, { input }, context, info) {
+      console.log("input", input);
+    }
   },
+
 };

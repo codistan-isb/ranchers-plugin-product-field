@@ -3,7 +3,6 @@ import importAsString from "@reactioncommerce/api-utils/importAsString.js";
 const mySchema = importAsString("./schema/schema.graphql");
 // const pkg = createRequire("../package.json");
 import myResolvers from "./resolvers/resolvers.js";
-
 const require = createRequire(import.meta.url);
 const pkg = require("../package.json");
 import SimpleSchema from "simpl-schema";
@@ -22,7 +21,20 @@ const AttributesProduct = new SimpleSchema({
     optional: true,
   },
 });
-
+const DrinksProduct = new SimpleSchema({
+  key: {
+    type: String,
+    optional: true,
+  },
+  name: {
+    type: String,
+    optional: true,
+  },
+  value: {
+    type: String,
+    optional: true,
+  },
+});
 const Attributes = new SimpleSchema({
   attributeName1: {
     type: String,
@@ -169,7 +181,7 @@ function myProductStartup(context) {
       optional: true,
     },
     "Drinks.$": {
-      type: AttributesProduct,
+      type: DrinksProduct,
     },
     oldId: {
       type: Number,
@@ -201,7 +213,7 @@ function myProductStartup(context) {
       optional: true,
     },
     "Drinks.$": {
-      type: AttributesProduct,
+      type: DrinksProduct,
     },
     featuredImage: {
       type: String,
@@ -248,7 +260,7 @@ function myProductStartup(context) {
       optional: true,
     },
     "Drinks.$": {
-      type: AttributesProduct,
+      type: DrinksProduct,
     },
     oldId: {
       type: Number,
@@ -269,6 +281,7 @@ function myPublishProductToCatalog(
   catalogProduct,
   { context, product, shop, variants }
 ) {
+  console.log("product", product);
   if (product.Attributes) {
     catalogProduct.Attributes = product.Attributes;
   }

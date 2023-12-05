@@ -104,7 +104,15 @@ input updateTrioFeastDealVariantsInput {
   id: ID
 }
 input createProductVariantScriptInput {
-  shopId: String
+  shopId: ID
+  productId: String
+}
+input updateProductScriptInput {
+  shopId: ID
+  productId: String
+}
+input UpdateProductVariantInput {
+  shopId: ID
   productId: String
 }
 extend type Mutation {
@@ -116,6 +124,8 @@ extend type Mutation {
     #   "Mutation input"
     input: UpdateProductVariantInput
   ): Boolean
+  updateProductScript(input: updateProductScriptInput): Boolean
   updateAny2DealVariants(input: updateAny2DealVariantsInput): Boolean
   updateTrioFeastDealVariants(input: updateTrioFeastDealVariantsInput): Boolean
+  createAny2Deal(input: createProductVariantScriptInput): Boolean
 }
