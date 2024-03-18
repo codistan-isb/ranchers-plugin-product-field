@@ -9,70 +9,83 @@ export default {
     async createAny2Deal(parent, { input }, context, info) {
       try {
         let { productId, shopId } = input;
-        const results = await Promise.all(any2Deal.map(async element => {
-          input = {
-            shopId,
-            productId,
-            variant: {
-              isDeleted: false,
-              isVisible: true,
-              attributeLabel:
-                "Any 2 Deal - " + element.Burger_1 +
-                " - " +
-                element.Burger_2 +
-                " - " +
-                element.Drink_1 +
-                " - " +
-                element.Drink_2,
-              optionTitle:
-                "Any 2 Deal - " + element.Burger_1 +
-                " - " +
-                element.Burger_2 +
-                " - " +
-                element.Drink_1 +
-                " - " +
-                element.Drink_2,
-              sku: "ranchers-1291",
-              title:
-                "Any 2 Deal - " + element.Burger_1 +
-                " - " +
-                element.Burger_2 +
-                " - " +
-                element.Drink_1 +
-                " - " +
-                element.Drink_2,
-              price: parseInt(element.Price),
-              isFeatured: "0",
-              Attributes: [
-                { key: "Burger 1", name: "Burger 1", value: element.Burger_1 },
-                { key: "Burger 2", name: "Burger 2", value: element.Burger_2 },
-                { key: "Drink 1", name: "Drink 1", value: element.Drink_1 },
-                { key: "Drink 2", name: "Drink 2", value: element.Drink_2 },
-              ],
-              Parent: decodeProductOpaqueId(productId),
-              isTaxable: true,
-            },
-          };
-          console.log("input ", input);
-          try {
-            const variantResp = await context.mutations.createProductVariant(
-              context,
-              {
-                productId: decodeProductOpaqueId(input.productId),
-                shopId: decodeShopOpaqueId(input.shopId),
-                variant: input.variant,
+        const results = await Promise.all(
+          any2Deal.map(async (element) => {
+            input = {
+              shopId,
+              productId,
+              variant: {
+                isDeleted: false,
+                isVisible: true,
+                attributeLabel:
+                  "Any 2 Deal - " +
+                  element.Burger_1 +
+                  " - " +
+                  element.Burger_2 +
+                  " - " +
+                  element.Drink_1 +
+                  " - " +
+                  element.Drink_2,
+                optionTitle:
+                  "Any 2 Deal - " +
+                  element.Burger_1 +
+                  " - " +
+                  element.Burger_2 +
+                  " - " +
+                  element.Drink_1 +
+                  " - " +
+                  element.Drink_2,
+                sku: "ranchers-1291",
+                title:
+                  "Any 2 Deal - " +
+                  element.Burger_1 +
+                  " - " +
+                  element.Burger_2 +
+                  " - " +
+                  element.Drink_1 +
+                  " - " +
+                  element.Drink_2,
+                price: parseInt(element.Price),
+                isFeatured: "0",
+                Attributes: [
+                  {
+                    key: "Burger 1",
+                    name: "Burger 1",
+                    value: element.Burger_1,
+                  },
+                  {
+                    key: "Burger 2",
+                    name: "Burger 2",
+                    value: element.Burger_2,
+                  },
+                  { key: "Drink 1", name: "Drink 1", value: element.Drink_1 },
+                  { key: "Drink 2", name: "Drink 2", value: element.Drink_2 },
+                ],
+                Parent: decodeProductOpaqueId(productId),
+                isTaxable: true,
+              },
+            };
+            console.log("input ", input);
+            try {
+              const variantResp = await context.mutations.createProductVariant(
+                context,
+                {
+                  productId: decodeProductOpaqueId(input.productId),
+                  shopId: decodeShopOpaqueId(input.shopId),
+                  variant: input.variant,
+                }
+              );
+              console.log("variantResp ", variantResp);
+              if (variantResp) {
+                return true;
+              } else {
+                return false;
               }
-            );
-            console.log("variantResp ", variantResp);
-            if (variantResp) {
-              return true;
-            } else {
-              return false;
+            } catch (error) {
+              console.log("error", error);
             }
-          } catch (error) {
-            console.log("error", error);
-          }
-        }));
+          })
+        );
 
         // console.log("any2Deal", any2Deal);
         // any2Deal.forEach(async element => {
@@ -145,9 +158,7 @@ export default {
 
         //   }
 
-
         // });
-
       } catch (error) {
         console.log("error", error);
       }
@@ -291,11 +302,12 @@ export default {
       const { Products } = collections;
       let inputValue;
       let { productId, shopId } = input;
-      const filter = { "ancestors": [productId] };
-      const update = { $set: { "price": NumberInt(1599), updatedAt: new Date(), } };
+      const filter = { ancestors: [productId] };
+      const update = {
+        $set: { price: NumberInt(1599), updatedAt: new Date() },
+      };
 
-      await Products.updateMany(filter, update)
-
+      await Products.updateMany(filter, update);
     },
     async updateAny2DealVariants(parent, { input }, context, info) {
       console.log("input", input);
@@ -389,7 +401,61 @@ export default {
     },
     async updateProductScript(parent, { input }, context, info) {
       console.log("input", input);
-    }
+    },
+    async createContentData(parent, { input }, context, info) {
+      let { contentData } = input;
+      const { ContentDetail } = context?.collections;
+      let data = {
+        _id: Random.id(),
+        contentData,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      };
+      let contentDataResp = await ContentDetail.insertOne(data);
+      if (contentDataResp) {
+        return true;
+      } else {
+        return false;
+      }
+    },
   },
-
+  Query: {
+    async appSettingDetails(parent, args, context, info) {
+      const { ContentDetail } = context?.collections;
+      // Get the current date
+      const currentDate = new Date();
+      // Format the date into "dd mm yyyy" format
+      const formattedDate = currentDate.toLocaleDateString("en-GB", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+      });
+      // Print the formatted date
+      // console.log("formattedDate", formattedDate);
+      // Get the current time in AM/PM format
+      const formattedTime = currentDate.toLocaleTimeString("en-US", {
+        hour: "numeric",
+        minute: "numeric",
+        hour12: true,
+      });
+      // Print the formatted time
+      // console.log("currentTime", formattedTime);
+      let slideDataResp = await ContentDetail.findOne(
+        {},
+        {
+          projection: {
+            contentData: 1,
+          },
+        }
+      );
+      // console.log("slideDataResp", slideDataResp);
+      if (slideDataResp) {
+        return {
+          date: formattedDate,
+          time: formattedTime,
+          slideLineDetail: slideDataResp?.contentData,
+        };
+      }
+    },
+  },
 };

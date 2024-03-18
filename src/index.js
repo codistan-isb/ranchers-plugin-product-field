@@ -320,6 +320,13 @@ async function register(app) {
     label: pkg.label,
     name: pkg.name,
     version: pkg.version,
+    collections: {
+      ContentDetail: {
+        name: "ContentDetail",
+        updatedAt: { type: Date, default: Date.now },
+        createdAt: { type: Date, default: Date.now },
+      },
+    },
     functionsByType: {
       startup: [myProductStartup],
       publishProductToCatalog: [myPublishProductToCatalog],
