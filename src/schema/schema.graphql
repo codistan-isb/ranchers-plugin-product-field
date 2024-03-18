@@ -121,12 +121,14 @@ type appSettingDetailsPayload {
   endDate: String
   endTime: String
   slideLineDetail: String
+  cafeTimingMessage: String
 }
 
 input createContentDataInput {
   contentData: String
   startTime: String
   endTime: String
+  cafeTimingMessage: String
 }
 extend type Mutation {
   createProductVariantScript(

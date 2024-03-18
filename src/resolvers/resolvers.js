@@ -403,13 +403,14 @@ export default {
       console.log("input", input);
     },
     async createContentData(parent, { input }, context, info) {
-      let { contentData, startTime, endTime } = input;
+      let { contentData, startTime, endTime, cafeTimingMessage } = input;
       const { ContentDetail } = context?.collections;
       let data = {
         _id: Random.id(),
         contentData,
         startTime,
         endTime,
+        cafeTimingMessage,
         createdAt: new Date(),
         updatedAt: new Date(),
       };
@@ -449,6 +450,7 @@ export default {
           endDate: tomorrowFormatted,
           endTime: slideDataResp?.endTime,
           slideLineDetail: slideDataResp?.contentData,
+          cafeTimingMessage: `Sorry we are closed now. You can placed order between ${slideDataResp?.startTime} till ${slideDataResp?.endTime}`,
         };
       } else {
         return null;
