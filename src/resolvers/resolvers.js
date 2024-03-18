@@ -403,11 +403,13 @@ export default {
       console.log("input", input);
     },
     async createContentData(parent, { input }, context, info) {
-      let { contentData } = input;
+      let { contentData, startTime, endTime } = input;
       const { ContentDetail } = context?.collections;
       let data = {
         _id: Random.id(),
         contentData,
+        startTime,
+        endTime,
         createdAt: new Date(),
         updatedAt: new Date(),
       };
@@ -422,39 +424,34 @@ export default {
   Query: {
     async appSettingDetails(parent, args, context, info) {
       const { ContentDetail } = context?.collections;
-      // Get the current date
-      const currentDate = new Date();
-      // Format the date into "dd mm yyyy" format
-      const formattedDate = currentDate.toLocaleDateString("en-GB", {
+      const today = new Date();
+      // Get tomorrow's date
+      const tomorrow = new Date(today);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      // Format today's date
+      const todayFormatted = today.toLocaleDateString("en-GB", {
         day: "2-digit",
         month: "2-digit",
         year: "numeric",
       });
-      // Print the formatted date
-      // console.log("formattedDate", formattedDate);
-      // Get the current time in AM/PM format
-      const formattedTime = currentDate.toLocaleTimeString("en-US", {
-        hour: "numeric",
-        minute: "numeric",
-        hour12: true,
+      // Format tomorrow's date
+      const tomorrowFormatted = tomorrow.toLocaleDateString("en-GB", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
       });
-      // Print the formatted time
-      // console.log("currentTime", formattedTime);
-      let slideDataResp = await ContentDetail.findOne(
-        {},
-        {
-          projection: {
-            contentData: 1,
-          },
-        }
-      );
-      // console.log("slideDataResp", slideDataResp);
+      let slideDataResp = await ContentDetail.findOne({});
+      console.log("slideDataResp", slideDataResp);
       if (slideDataResp) {
         return {
-          date: formattedDate,
-          time: formattedTime,
+          startDate: todayFormatted,
+          startTime: slideDataResp?.startTime,
+          endDate: tomorrowFormatted,
+          endTime: slideDataResp?.endTime,
           slideLineDetail: slideDataResp?.contentData,
         };
+      } else {
+        return null;
       }
     },
   },

@@ -116,13 +116,17 @@ input UpdateProductVariantInput {
   productId: String
 }
 type appSettingDetailsPayload {
-  date: String
-  time: String
+  startDate: String
+  startTime: String
+  endDate: String
+  endTime: String
   slideLineDetail: String
 }
 
 input createContentDataInput {
   contentData: String
+  startTime: String
+  endTime: String
 }
 extend type Mutation {
   createProductVariantScript(
@@ -138,8 +142,7 @@ extend type Mutation {
   updateTrioFeastDealVariants(input: updateTrioFeastDealVariantsInput): Boolean
   createAny2Deal(input: createProductVariantScriptInput): Boolean
   createContentData(input: createContentDataInput): Boolean
-  
 }
-extend type Query{
+extend type Query {
   appSettingDetails: appSettingDetailsPayload
 }
