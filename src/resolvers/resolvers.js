@@ -450,6 +450,7 @@ export default {
           endDate: tomorrowFormatted,
           endTime: slideDataResp?.endTime,
           slideLineDetail: slideDataResp?.contentData,
+          cacheVer: slideDataResp?.cacheVer,
           cafeTimingMessage: `Sorry we are closed now. You can placed order between ${slideDataResp?.startTime} till ${slideDataResp?.endTime}`,
         };
       } else {

@@ -120,6 +120,7 @@ type appSettingDetailsPayload {
   startTime: String
   endDate: String
   endTime: String
+  cacheVer: String
   slideLineDetail: String
   cafeTimingMessage: String
 }
@@ -128,6 +129,7 @@ input createContentDataInput {
   contentData: String
   startTime: String
   endTime: String
+  cacheVer: String
   cafeTimingMessage: String
 }
 extend type Mutation {
