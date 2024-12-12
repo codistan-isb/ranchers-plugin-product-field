@@ -116,6 +116,8 @@ input UpdateProductVariantInput {
   productId: String
 }
 type appSettingDetailsPayload {
+  isOrderTime: Boolean
+  currentTime: String
   startDate: String
   startTime: String
   endDate: String
