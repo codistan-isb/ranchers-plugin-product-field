@@ -445,7 +445,7 @@ export default {
       let slideDataResp = await ContentDetail.findOne({});
       console.log("slideDataResp", slideDataResp);
       const startTime = "11:30 AM"; // Start time 
-      const endTime = "01:45 AM"; // End time on the next day
+      const endTime = "12:45 AM"; // End time on the next day
       const pakistanDate = moment().tz('Asia/Karachi'); // Get current Pakistan time
       const currentTime = pakistanDate; // Use the full moment object
 
